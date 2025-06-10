@@ -1,0 +1,24 @@
+[0m16:10:26.944501 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10903a450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1090619d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109062350>]}
+
+
+============================== 16:10:26.947057 | 3a15c63b-01dd-4bad-94f3-bf52c57d3579 ==============================
+[0m16:10:26.947057 [info ] [MainThread]: Running with dbt=1.9.8
+[0m16:10:26.947332 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/avenugopal/.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt init dbt', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m16:11:15.972639 [debug] [MainThread]: Starter project path: /Users/avenugopal/Desktop/Prep/Python/acura/.venv/lib/python3.11/site-packages/dbt/include/starter_project
+[0m16:11:15.982573 [info ] [MainThread]: 
+Your new dbt project "dbt_logic" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m16:11:15.983131 [info ] [MainThread]: Setting up your profile.
