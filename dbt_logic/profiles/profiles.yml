@@ -1,0 +1,15 @@
+develop:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres-datastore
+      user: acura_user
+      password: password
+      port: 5432
+      dbname: acura_db
+      schema: public
+      threads: 2
+      keepalives_idle: 0
+      connect_timeout: 10
+      retries: 1

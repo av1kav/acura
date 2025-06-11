@@ -1,17 +1,18 @@
 services:
-
-  # Database
-  postgres:
-    container_name: postgres
+  # Datastore and inspector
+  postgres-datastore:
+    container_name: postgres-datastore
     image: postgres:latest
     environment:
       POSTGRES_USER: acura_user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: acura_db
-    ports:
-      - "5432:5432"
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./postgres/data:/var/lib/postgresql/data
+    networks:
+      - backend
+    ports:
+      - "2345:5432"
     restart: always
     shm_size: 128mb # set shared memory limit when using docker compose
   adminer:
@@ -19,6 +20,26 @@ services:
     restart: always
     ports:
       - "8086:8080"
+    networks:
+      - backend
+
   # Orchestration
-  # Merge airflow docker-compose at runtime: 
-  # docker-compose -f docker-compose.yml -f airflow/airflow-docker-compose.yml up -d
+  #   Merge airflow docker-compose at runtime: 
+  #   > docker-compose -f docker-compose.yml -f airflow/airflow-docker-compose.yml up -d
+  
+  # Data Transformation
+  dbt:
+    container_name: dbt
+    image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest
+    platform: linux/amd64 # apple silicon emulation
+    volumes:
+      - ./dbt_logic:/usr/app/dbt/
+    depends_on:
+      - postgres-datastore
+    networks:
+      - backend
+    command: run --profiles-dir /usr/app/dbt/profiles
+
+networks:
+  backend:
+    driver: bridge
