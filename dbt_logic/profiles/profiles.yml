@@ -1,4 +1,4 @@
-develop:
+dbt_logic:
   target: dev
   outputs:
     dev:

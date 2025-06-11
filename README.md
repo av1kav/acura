@@ -6,11 +6,13 @@ A containerized user review analytics platform that uses publicly available info
 ## Components
 
 ### Database: Postgres
-Configured in `docker-compose.yml` under the service name `postgres`. To reset the database to its initial (mock data) state, use:
+
+#### RDBMS service
+Configured in `docker-compose.yml` under the service name `postgres-datastore`. To reset the database to its initial (mock data) state, use:
 
 ``docker exec -i postgres-datastore psql -U acura_user -d acura_db -f /docker-entrypoint-initdb.d/setup.sql``
 
-You should see output like
+You should see output like:
 
 ```
     BEGIN
@@ -32,7 +34,17 @@ The Airflow webserver runs on `0.0.0.0:8080`. The username and password are pres
 
 ### Data Transformations: dbt
 
-The dbt service is configured as a container bridged into the same network shared by the remaining services.
+The dbt service is configured as a container bridged into the same network shared by the remaining services. Data architecture is designed according to the Snowflake Data Cloud Deployment Framework (DCDF) and has the following layers:
+
+1. Source/Cloud: `public` schema
+2. Raw layer: `raw` schema
+3. Integration layer: `integration` schema
+4. Presentation layer: `presentation` schema
+5. Share layer: `share` schema
+
+Though the Source and Cloud layers are usually not part of Snwflake (and in this case, Postgres), this project assumes the containers are running as cloud services/microservices and so there is no additional ingress; source data in the `public` schema is referenced by dbt models starting from the `raw` layer.
+
+Please note that due to dbt naming conventions, the prefix `public_` will be attached to all dbt models, due to the configuration of only a development dbt profile. So, for example, the `raw` schema would appear as `public_raw`.
 
 ### Data Quality: deequ
 ### Analytics: pySpark

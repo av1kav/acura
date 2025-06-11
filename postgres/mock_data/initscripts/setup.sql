@@ -1,6 +1,9 @@
 BEGIN;
 
-DROP TABLE IF EXISTS public.cc_comp_info;
+DROP TABLE IF EXISTS public.my_first_dbt_model CASCADE;
+DROP TABLE IF EXISTS public.my_second_dbt_model CASCADE;
+
+DROP TABLE IF EXISTS public.cc_comp_info CASCADE;
 
 CREATE TABLE public.cc_comp_info (
     card_name VARCHAR(255),
@@ -14,11 +17,19 @@ CREATE TABLE public.cc_comp_info (
     foreign_transaction_fee FLOAT
 );
 
+DROP SCHEMA IF EXISTS raw;
+CREATE SCHEMA raw;
+
+DROP SCHEMA IF EXISTS integration;
+CREATE SCHEMA integration;
+
+DROP SCHEMA IF EXISTS presentation;
+CREATE SCHEMA presentation;
+
 COMMIT;
 
 BEGIN;
 
--- Copy data from the CSV file into the 'cc_comp_info' table
 COPY public.cc_comp_info(card_name, annual_fee, card_type, recommended_credit_score, intro_apr_rate, intro_apr_duration, ongoing_apr_fixed, ongoing_apr_variable, foreign_transaction_fee)
 FROM '/var/lib/postgresql/mock_data/credit_cards_comparison.csv'
 DELIMITER ','

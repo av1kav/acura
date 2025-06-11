@@ -26,8 +26,7 @@ services:
       - backend
 
   # Orchestration
-  #   Merge airflow docker-compose at runtime: 
-  #   > docker-compose -f docker-compose.yml -f airflow/airflow-docker-compose.yml up -d
+  #   Merge airflow/docker-compose.airflow.yml with docker-compose.yml at runtime; see README for setup script
   
   # Data Transformation
   dbt:
@@ -40,7 +39,7 @@ services:
       - postgres-datastore
     networks:
       - backend
-    command: run --debug --profiles-dir /usr/app/dbt/profiles
+    command: run --profiles-dir /usr/app/dbt/profiles --full-refresh
 
 networks:
   backend:
