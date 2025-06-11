@@ -1,0 +1,7 @@
+card_name,annual_fee,card_type,recommended_credit_score,intro_apr_rate,intro_apr_duration,ongoing_apr_fixed,ongoing_apr_variable,foreign_transaction_fee
+Apple Card,0,Cash Back,Not specified,,,18.24,28.49,0
+Chase Sapphire Preferred,95,Travel Rewards,Excellent,,,19.99,28.24,0
+Citi Double Cash Card,0,Cash Back,Fair to Excellent,0,18 months,18.24,28.24,0.03
+Capital One Quicksilver Cash Rewards,0,Cash Back,Excellent,0,15 months,19.24,29.24,0
+Discover it Cash Back,0,Cash Back,Fair to Excellent,0,15 months,18.24,27.24,0
+American Express Blue Cash Preferred,95,Cash Back,Excellent,0,12 months,20.24,29.24,0

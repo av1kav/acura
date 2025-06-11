@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: acura_db
     volumes:
       - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/mock_data/initscripts:/docker-entrypoint-initdb.d
+      - ./postgres/mock_data/credit_cards_comparison.csv:/var/lib/postgresql/mock_data/credit_cards_comparison.csv
     networks:
       - backend
     ports:
@@ -38,7 +40,7 @@ services:
       - postgres-datastore
     networks:
       - backend
-    command: run --profiles-dir /usr/app/dbt/profiles
+    command: run --debug --profiles-dir /usr/app/dbt/profiles
 
 networks:
   backend:
