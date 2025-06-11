@@ -25,10 +25,16 @@ You should see output like:
 ```
 
 #### Adminer GUI
-The adminer service runs on `0.0.0.0:8086`. The username and password are present in the `profiles.yml` configuration file under `dbt_logic/`.
+The adminer service runs on `0.0.0.0:8086`.
+
+![alt text](assets/adminer.png)
+
+The username and password are present in the `profiles.yml` configuration file under `dbt_logic/`.
 
 ### Orchestration: Airflow
-Configured in its own `docker-compose.airflow.yml` file under `airflow/` directory. Merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme).
+Airflow services are configured together in a `docker-compose.airflow.yml` file under `airflow/` directory. This configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme).
+
+![alt text](assets/airflow.png)
 
 The Airflow webserver runs on `0.0.0.0:8080`. The username and password are present in the `airflow/docker-compose.airflow.yml` file. 
 
@@ -42,12 +48,20 @@ The dbt service is configured as a container bridged into the same network share
 4. Presentation layer: `presentation` schema
 5. Share layer: `share` schema
 
+![alt text](assets/dcdf.png)
+
 Though the Source and Cloud layers are usually not part of Snwflake (and in this case, Postgres), this project assumes the containers are running as cloud services/microservices and so there is no additional ingress; source data in the `public` schema is referenced by dbt models starting from the `raw` layer.
+
 
 Please note that due to dbt naming conventions, the prefix `public_` will be attached to all dbt models, due to the configuration of only a development dbt profile. So, for example, the `raw` schema would appear as `public_raw`.
 
 ### Data Quality: deequ
 ### Analytics: pySpark
+### Exploration: jupyter-pyspark
+A jupyterlab instance with fully a configured Spark environment is available on a URL in the logs of the `jupyter-pyspark` container:
+
+![alt text](assets/jupyter-pyspark.png)
+
 ### Dashboarding: Tableau(??)
 
 ## Containerization using Docker
