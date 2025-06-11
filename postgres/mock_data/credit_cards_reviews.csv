@@ -1,0 +1,11 @@
+﻿card_name,platform_name,review_timestamp,review_id,review_customer_id,review_customer_name,review_rating_maximum,review_rating_given,review_raw_text
+Apple Card,Apple,6/10/25 14:00,1,101,John Doe,5,4,"""I love the Apple Card's cash back feature, especially with no fees for international transactions. The rewards rate is great for daily purchases."""
+Apple Card,Apple,6/10/25 14:30,2,102,Jane Smith,5,5,"""The 0% APR for the first 12 months really helped me manage a balance transfer. Plus, I get Apple rewards for my purchases, which is a nice bonus."""
+Apple Card,Apple,6/10/25 15:00,3,103,Mark Johnson,5,3,"""I was expecting more travel rewards, but the cashback program is solid. The card is simple, but the bonus offers for Apple products are a great perk."""
+Chase Sapphire,Chase,6/10/25 15:30,4,104,Alice Davis,5,5,"""The Chase Sapphire card is perfect for travel. The bonus offers are great, especially the bonus points on travel and dining. Worth every penny."""
+Chase Sapphire,Chase,6/10/25 16:00,5,105,Chris Lee,5,4,"""I got amazing rewards points on travel bookings. The 0% APR is very helpful for big purchases like flights. I'm looking forward to more cash back offers."""
+Chase Sapphire,Chase,6/10/25 16:30,6,106,Rachel Green,4,4,"""The balance transfer option is a life-saver. However, I wish there were more specific bonus offers for regular spenders."""
+Amex BlueCash,American Express,6/10/25 17:00,7,107,David Clark,5,5,"""The cash back feature is fantastic! I get a lot back on groceries and gas. The rewards are really worth it if you're a frequent shopper."""
+Amex BlueCash,American Express,6/10/25 17:30,8,108,Emma White,5,4,"""I really appreciate the bonus offers Amex gives. The rewards rate for travel is a bit low, but the cashback on everyday purchases makes up for it."""
+Amex BlueCash,American Express,6/10/25 18:00,9,109,Noah Black,4,3,"""The card is great for everyday purchases, but I was hoping for more cash back on travel expenses. The airline benefits are limited."""
+Amex BlueCash,American Express,6/10/25 18:30,10,110,Olivia Turner,4,4,"""Amex BlueCash has great rewards for cash back, but I would love to see more travel perks. A better balance transfer offer would be nice too."""

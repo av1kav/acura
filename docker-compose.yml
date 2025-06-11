@@ -1,5 +1,6 @@
 services:
-  # Datastore and inspector
+  ##  Database
+  # Postgres RDBMS service
   postgres-datastore:
     container_name: postgres-datastore
     image: postgres:latest
@@ -10,13 +11,14 @@ services:
     volumes:
       - ./postgres/data:/var/lib/postgresql/data
       - ./postgres/mock_data/initscripts:/docker-entrypoint-initdb.d
-      - ./postgres/mock_data/credit_cards_comparison.csv:/var/lib/postgresql/mock_data/credit_cards_comparison.csv
+      - ./postgres/mock_data:/var/lib/postgresql/mock_data/
     networks:
       - backend
     ports:
       - "2345:5432"
     restart: always
     shm_size: 128mb # set shared memory limit when using docker compose
+  # Admin UI
   adminer:
     image: adminer
     restart: always
@@ -24,11 +26,12 @@ services:
       - "8086:8080"
     networks:
       - backend
-
-  # Orchestration
-  #   Merge airflow/docker-compose.airflow.yml with docker-compose.yml at runtime; see README for setup script
   
-  # Data Transformation
+  ## Orchestration
+  #   Airflow; merge airflow/docker-compose.airflow.yml with docker-compose.yml at runtime; see README for setup script
+  
+  ## Data Transformation
+  # dbt
   dbt:
     container_name: dbt
     image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest
@@ -40,6 +43,49 @@ services:
     networks:
       - backend
     command: run --profiles-dir /usr/app/dbt/profiles --full-refresh
+  
+  ## Analytics engine: Spark. Special thanks to karlchris/spark-docker.git
+  # Master service
+  spark-master:
+    image: apache/spark-py:v3.4.0
+    container_name: spark-master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_HOME=/opt/spark
+    ports:
+      - "8090:8080"  # Spark UI
+      - "7077:7077"  # Spark master port
+    volumes:
+      - ./pyspark/spark-logs:/opt/spark/logs
+    networks:
+      - backend
+    command: ["/opt/spark/sbin/start-master.sh"]
+  # Workers
+  spark-worker:
+    image: apache/spark-py:v3.4.0
+    container_name: spark-worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_HOME=/opt/spark
+    depends_on:
+      - spark-master
+    networks:
+      - backend
+  # Notebook service
+  jupyter-pyspark:
+    image: jupyter/all-spark-notebook
+    container_name: jupyter-pyspark
+    volumes:
+      - ./pyspark/postgresql-42.7.5.jar:/opt/spark/jars/postgresql-42.7.5.jar
+    environment:
+      SPARK_SUBMIT_ARGS: --jars /opt/spark/jars/postgresql-42.7.5.jar
+    ports:
+      - "8888:8888"
+    depends_on:
+      - spark-master
+    networks:
+      - backend
 
 networks:
   backend:

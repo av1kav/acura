@@ -1,0 +1,1 @@
+select * from public.cc_review_events
