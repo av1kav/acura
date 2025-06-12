@@ -10,7 +10,6 @@ services:
       POSTGRES_DB: acura_db
     volumes:
       - ./postgres/data:/var/lib/postgresql/data
-      - ./postgres/mock_data/initscripts:/docker-entrypoint-initdb.d
       - ./postgres/mock_data:/var/lib/postgresql/mock_data/
     networks:
       - backend
@@ -44,7 +43,8 @@ services:
       - backend
     command: run --profiles-dir /usr/app/dbt/profiles --full-refresh
   
-  ## Analytics engine: Spark. Special thanks to karlchris/spark-docker.git
+  ## Analytics
+  # Special thanks to karlchris/spark-docker.git
   # Master service
   spark-master:
     image: apache/spark-py:v3.4.0
@@ -78,12 +78,27 @@ services:
     container_name: jupyter-pyspark
     volumes:
       - ./pyspark/postgresql-42.7.5.jar:/opt/spark/jars/postgresql-42.7.5.jar
+      - ./pyspark/notebooks:/home/jovyan/
     environment:
       SPARK_SUBMIT_ARGS: --jars /opt/spark/jars/postgresql-42.7.5.jar
     ports:
       - "8888:8888"
     depends_on:
       - spark-master
+    networks:
+      - backend
+  ## Data Visualization
+  # Grafana
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+     - '3000:3000'
+    volumes:
+      - ./grafana:/var/lib/grafana
+    depends_on:
+      - postgres-datastore
     networks:
       - backend
 

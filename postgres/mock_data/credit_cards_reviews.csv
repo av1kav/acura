@@ -1,11 +1,141 @@
 ﻿card_name,platform_name,review_timestamp,review_id,review_customer_id,review_customer_name,review_rating_maximum,review_rating_given,review_raw_text
-Apple Card,Apple,6/10/25 14:00,1,101,John Doe,5,4,"""I love the Apple Card's cash back feature, especially with no fees for international transactions. The rewards rate is great for daily purchases."""
-Apple Card,Apple,6/10/25 14:30,2,102,Jane Smith,5,5,"""The 0% APR for the first 12 months really helped me manage a balance transfer. Plus, I get Apple rewards for my purchases, which is a nice bonus."""
-Apple Card,Apple,6/10/25 15:00,3,103,Mark Johnson,5,3,"""I was expecting more travel rewards, but the cashback program is solid. The card is simple, but the bonus offers for Apple products are a great perk."""
-Chase Sapphire,Chase,6/10/25 15:30,4,104,Alice Davis,5,5,"""The Chase Sapphire card is perfect for travel. The bonus offers are great, especially the bonus points on travel and dining. Worth every penny."""
-Chase Sapphire,Chase,6/10/25 16:00,5,105,Chris Lee,5,4,"""I got amazing rewards points on travel bookings. The 0% APR is very helpful for big purchases like flights. I'm looking forward to more cash back offers."""
-Chase Sapphire,Chase,6/10/25 16:30,6,106,Rachel Green,4,4,"""The balance transfer option is a life-saver. However, I wish there were more specific bonus offers for regular spenders."""
-Amex BlueCash,American Express,6/10/25 17:00,7,107,David Clark,5,5,"""The cash back feature is fantastic! I get a lot back on groceries and gas. The rewards are really worth it if you're a frequent shopper."""
-Amex BlueCash,American Express,6/10/25 17:30,8,108,Emma White,5,4,"""I really appreciate the bonus offers Amex gives. The rewards rate for travel is a bit low, but the cashback on everyday purchases makes up for it."""
-Amex BlueCash,American Express,6/10/25 18:00,9,109,Noah Black,4,3,"""The card is great for everyday purchases, but I was hoping for more cash back on travel expenses. The airline benefits are limited."""
-Amex BlueCash,American Express,6/10/25 18:30,10,110,Olivia Turner,4,4,"""Amex BlueCash has great rewards for cash back, but I would love to see more travel perks. A better balance transfer offer would be nice too."""
+Apple Card,Apple Card,2/22/25 21:36,1,4331,Customer4331,5,2,I took advantage of the balance transfer offer with Apple Card. Super easy process.
+Apple Card,Apple Card,10/30/24 21:36,2,9996,Customer9996,5,5,The rewards system with Apple Card is straightforward and great for cash back.
+Apple Card,Apple Card,3/6/25 21:36,3,1734,Customer1734,5,3,Apple Card's 0% APR was a lifesaver during the holidays!
+Apple Card,Apple Card,9/11/24 21:36,4,5827,Customer5827,5,4,The rewards system with Apple Card is straightforward and great for cash back.
+Apple Card,Apple Card,1/20/25 21:36,5,5880,Customer5880,5,5,The rewards system with Apple Card is straightforward and great for cash back.
+Apple Card,Apple Card,8/16/24 21:36,6,9802,Customer9802,5,2,I love Apple Card's 0% APR offer! It's the best balance transfer card for no interest.
+Apple Card,Apple Card,7/31/24 21:36,7,4294,Customer4294,5,1,Apple Card's bonus offer was really easy to claim. Highly recommend it.
+Apple Card,Apple Card,3/16/25 21:36,8,9308,Customer9308,5,3,"I love the simplicity of the Apple Card, especially the lack of foreign transaction fees."
+Apple Card,Apple Card,10/28/24 21:36,9,7333,Customer7333,5,5,Apple Card's 0% APR was a lifesaver during the holidays!
+Apple Card,Apple Card,12/24/24 21:36,10,7560,Customer7560,5,4,I love Apple Card's 0% APR offer! It's the best balance transfer card for no interest.
+Chase Sapphire,Chase Sapphire,2/12/25 21:36,11,8341,Customer8341,5,5,The bonus offer from Chase Sapphire was quick and easy to redeem. I love the travel benefits!
+Chase Sapphire,Chase Sapphire,5/3/25 21:36,12,8357,Customer8357,5,3,The Chase Sapphire card gives you great travel perks like airport lounge access.
+Chase Sapphire,Chase Sapphire,12/6/24 21:36,13,3425,Customer3425,5,4,Chase Sapphire‚Äôs 0% APR offer is great for big purchases.
+Chase Sapphire,Chase Sapphire,10/10/24 21:36,14,1576,Customer1576,5,3,The Chase Sapphire bonus offer helped me travel to Europe for free! Amazing value.
+Chase Sapphire,Chase Sapphire,4/2/25 21:36,15,2101,Customer2101,5,1,The rewards I‚Äôve earned on my Chase Sapphire card have made me a loyal customer.
+Chase Sapphire,Chase Sapphire,12/18/24 21:36,16,3545,Customer3545,5,4,I'm so happy with my Chase Sapphire card‚Äôs travel rewards. It makes vacations so much more affordable.
+Chase Sapphire,Chase Sapphire,9/17/24 21:36,17,4689,Customer4689,5,2,The Chase Sapphire bonus offer helped me travel to Europe for free! Amazing value.
+Chase Sapphire,Chase Sapphire,9/27/24 21:36,18,5354,Customer5354,5,5,The Chase Sapphire bonus offer helped me travel to Europe for free! Amazing value.
+Chase Sapphire,Chase Sapphire,11/9/24 21:36,19,2738,Customer2738,5,1,The Chase Sapphire bonus offer helped me travel to Europe for free! Amazing value.
+Chase Sapphire,Chase Sapphire,5/29/25 21:36,20,1522,Customer1522,5,5,The rewards I‚Äôve earned on my Chase Sapphire card have made me a loyal customer.
+Amex BlueCash Everyday,Amex BlueCash Everyday,1/4/25 21:36,21,9072,Customer9072,5,4,Amex BlueCash is my go-to card for cash back. Love the simplicity and rewards.
+Amex BlueCash Everyday,Amex BlueCash Everyday,6/15/24 21:36,22,1756,Customer1756,5,5,The rewards points on Amex BlueCash are easy to redeem for cash back or gift cards.
+Amex BlueCash Everyday,Amex BlueCash Everyday,11/27/24 21:36,23,1928,Customer1928,5,1,Amex BlueCash‚Äôs bonus offer was very generous when I first signed up.
+Amex BlueCash Everyday,Amex BlueCash Everyday,7/18/24 21:36,24,8010,Customer8010,5,2,The 0% APR for the first 15 months was perfect when I bought my new TV on Amex BlueCash.
+Amex BlueCash Everyday,Amex BlueCash Everyday,6/12/24 21:36,25,4065,Customer4065,5,2,The 0% APR for the first 15 months was perfect when I bought my new TV on Amex BlueCash.
+Amex BlueCash Everyday,Amex BlueCash Everyday,6/26/24 21:36,26,7615,Customer7615,5,3,Amex BlueCash Everyday has fantastic cash back on groceries and gas. Highly recommend!
+Amex BlueCash Everyday,Amex BlueCash Everyday,1/16/25 21:36,27,5569,Customer5569,5,2,The 0% APR for the first 15 months was perfect when I bought my new TV on Amex BlueCash.
+Amex BlueCash Everyday,Amex BlueCash Everyday,5/13/25 21:36,28,4454,Customer4454,5,5,The rewards points on Amex BlueCash are easy to redeem for cash back or gift cards.
+Amex BlueCash Everyday,Amex BlueCash Everyday,1/7/25 21:36,29,2195,Customer2195,5,5,The 0% APR for the first 15 months was perfect when I bought my new TV on Amex BlueCash.
+Amex BlueCash Everyday,Amex BlueCash Everyday,12/28/24 21:36,30,8117,Customer8117,5,3,Amex BlueCash‚Äôs bonus offer was very generous when I first signed up.
+Capital One Quicksilver,Capital One Quicksilver,5/24/25 21:36,31,7794,Customer7794,5,5,Capital One Quicksilver‚Äôs 0% APR offer was ideal when I made a large purchase.
+Capital One Quicksilver,Capital One Quicksilver,8/1/24 21:36,32,6923,Customer6923,5,5,I use Capital One Quicksilver for all my travel bookings. The cash back adds up fast.
+Capital One Quicksilver,Capital One Quicksilver,9/28/24 21:36,33,4967,Customer4967,5,3,"I love the rewards I get from Capital One Quicksilver, especially on everyday purchases."
+Capital One Quicksilver,Capital One Quicksilver,4/17/25 21:36,34,8397,Customer8397,5,1,"With Capital One Quicksilver, I earn cash back that I can use for travel or other purchases."
+Capital One Quicksilver,Capital One Quicksilver,5/17/25 21:36,35,6523,Customer6523,5,3,Capital One Quicksilver‚Äôs 0% APR offer was ideal when I made a large purchase.
+Capital One Quicksilver,Capital One Quicksilver,10/19/24 21:36,36,1440,Customer1440,5,1,The rewards points from Capital One Quicksilver are very flexible for travel or merchandise.
+Capital One Quicksilver,Capital One Quicksilver,9/3/24 21:36,37,6861,Customer6861,5,4,The bonus offer from Capital One Quicksilver was a great incentive to switch cards.
+Capital One Quicksilver,Capital One Quicksilver,6/23/24 21:36,38,1329,Customer1329,5,1,The bonus offer from Capital One Quicksilver was a great incentive to switch cards.
+Capital One Quicksilver,Capital One Quicksilver,4/14/25 21:36,39,3086,Customer3086,5,4,I enjoy using Capital One Quicksilver for all my travel expenses. The rewards are solid.
+Capital One Quicksilver,Capital One Quicksilver,12/10/24 21:36,40,7929,Customer7929,5,1,I enjoy using Capital One Quicksilver for all my travel expenses. The rewards are solid.
+Citi Double Cash,Citi Double Cash,12/25/24 21:36,41,4822,Customer4822,5,4,Citi Double Cash is the best card for cash back. I earn on everything I buy.
+Citi Double Cash,Citi Double Cash,12/20/24 21:36,42,9484,Customer9484,5,1,Citi Double Cash gives amazing value with their rewards program. It‚Äôs all about cash back!
+Citi Double Cash,Citi Double Cash,4/9/25 21:36,43,4876,Customer4876,5,5,"I used Citi Double Cash for travel purchases, and the rewards points really add up."
+Citi Double Cash,Citi Double Cash,2/9/25 21:36,44,6371,Customer6371,5,5,The 0% APR for 18 months with Citi Double Cash made it easy for me to pay off big purchases.
+Citi Double Cash,Citi Double Cash,6/9/25 21:36,45,5701,Customer5701,5,3,I transferred some balances to Citi Double Cash for 0% APR. It's been really helpful.
+Citi Double Cash,Citi Double Cash,8/31/24 21:36,46,7474,Customer7474,5,3,I transferred some balances to Citi Double Cash for 0% APR. It's been really helpful.
+Citi Double Cash,Citi Double Cash,11/6/24 21:36,47,4067,Customer4067,5,2,The 0% APR for 18 months with Citi Double Cash made it easy for me to pay off big purchases.
+Citi Double Cash,Citi Double Cash,8/17/24 21:36,48,3660,Customer3660,5,1,The bonus offer from Citi Double Cash helped me earn a substantial amount after signing up.
+Citi Double Cash,Citi Double Cash,1/19/25 21:36,49,6635,Customer6635,5,1,I transferred some balances to Citi Double Cash for 0% APR. It's been really helpful.
+Citi Double Cash,Citi Double Cash,3/29/25 21:36,50,4468,Customer4468,5,2,Citi Double Cash is the best card for cash back. I earn on everything I buy.
+Discover it Cash Back,Discover it Cash Back,4/27/25 21:36,51,3635,Customer3635,5,1,I love the balance transfer offer with Discover it Cash Back. It helped me save on interest.
+Discover it Cash Back,Discover it Cash Back,5/9/25 21:36,52,9655,Customer9655,5,4,I‚Äôve used Discover it Cash Back for travel expenses. The rewards have been a nice addition.
+Discover it Cash Back,Discover it Cash Back,11/27/24 21:36,53,6024,Customer6024,5,3,I love the balance transfer offer with Discover it Cash Back. It helped me save on interest.
+Discover it Cash Back,Discover it Cash Back,1/7/25 21:36,54,5621,Customer5621,5,3,Discover it Cash Back has been great for earning rewards when I shop for essentials.
+Discover it Cash Back,Discover it Cash Back,3/12/25 21:36,55,2199,Customer2199,5,3,Discover it Cash Back's rewards are fantastic. The rotating categories are a fun bonus.
+Discover it Cash Back,Discover it Cash Back,12/28/24 21:36,56,3738,Customer3738,5,1,I‚Äôve used Discover it Cash Back for travel expenses. The rewards have been a nice addition.
+Discover it Cash Back,Discover it Cash Back,9/22/24 21:36,57,8810,Customer8810,5,1,Discover it Cash Back has some of the best cash back categories for groceries and dining.
+Discover it Cash Back,Discover it Cash Back,3/11/25 21:36,58,8257,Customer8257,5,1,I‚Äôve used Discover it Cash Back for travel expenses. The rewards have been a nice addition.
+Discover it Cash Back,Discover it Cash Back,5/6/25 21:36,59,3717,Customer3717,5,2,The 0% APR offer on Discover it Cash Back was perfect for making big purchases.
+Discover it Cash Back,Discover it Cash Back,8/11/24 21:36,60,6172,Customer6172,5,2,The Discover it Cash Back card gives great cash back rates for certain categories each quarter.
+Bank of America Premium Rewards,Bank of America Premium Rewards,2/8/25 21:36,61,2829,Customer2829,5,4,The rewards points on Bank of America Premium Rewards are excellent for travel and merchandise.
+Bank of America Premium Rewards,Bank of America Premium Rewards,8/7/24 21:36,62,1532,Customer1532,5,5,Bank of America Premium Rewards has great travel rewards for every dollar spent.
+Bank of America Premium Rewards,Bank of America Premium Rewards,7/9/24 21:36,63,8047,Customer8047,5,4,Bank of America Premium Rewards offers great travel benefits like airport lounge access.
+Bank of America Premium Rewards,Bank of America Premium Rewards,12/31/24 21:36,64,8770,Customer8770,5,3,"Bank of America Premium Rewards gives great 0% APR deals, which helped me finance a big purchase."
+Bank of America Premium Rewards,Bank of America Premium Rewards,9/7/24 21:36,65,1621,Customer1621,5,4,Bank of America Premium Rewards has great travel rewards for every dollar spent.
+Bank of America Premium Rewards,Bank of America Premium Rewards,6/15/24 21:36,66,9024,Customer9024,5,4,I use my Bank of America Premium Rewards card for travel. The rewards make it worth it.
+Bank of America Premium Rewards,Bank of America Premium Rewards,9/7/24 21:36,67,7849,Customer7849,5,4,I use my Bank of America Premium Rewards card for travel. The rewards make it worth it.
+Bank of America Premium Rewards,Bank of America Premium Rewards,6/5/25 21:36,68,4033,Customer4033,5,4,"Bank of America Premium Rewards gives great 0% APR deals, which helped me finance a big purchase."
+Bank of America Premium Rewards,Bank of America Premium Rewards,12/21/24 21:36,69,6905,Customer6905,5,5,"Bank of America Premium Rewards gives great 0% APR deals, which helped me finance a big purchase."
+Bank of America Premium Rewards,Bank of America Premium Rewards,12/17/24 21:36,70,3681,Customer3681,5,4,Bank of America Premium Rewards has great travel rewards for every dollar spent.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,9/11/24 21:36,71,8816,Customer8816,5,4,"I used Wells Fargo Propel for a flight, and the travel rewards helped me save a lot."
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,8/1/24 21:36,72,4788,Customer4788,5,4,Wells Fargo Propel is a great card for earning rewards. I use it for everyday purchases.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,2/25/25 21:36,73,1428,Customer1428,5,2,I‚Äôve been using Wells Fargo Propel for my travel expenses. The rewards really add up.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,4/21/25 21:36,74,3469,Customer3469,5,4,Wells Fargo Propel is a great card for earning rewards. I use it for everyday purchases.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,4/14/25 21:36,75,7004,Customer7004,5,1,Wells Fargo Propel‚Äôs bonus offer was super easy to claim and got me a nice reward.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,8/21/24 21:36,76,5325,Customer5325,5,4,Wells Fargo Propel is a great card for earning rewards. I use it for everyday purchases.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,7/15/24 21:36,77,1124,Customer1124,5,4,The 0% APR offer on Wells Fargo Propel was perfect for making big purchases.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,11/23/24 21:36,78,5817,Customer5817,5,1,Wells Fargo Propel has been great for earning rewards points on every purchase.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,10/14/24 21:36,79,1204,Customer1204,5,1,Wells Fargo Propel is a great card for earning rewards. I use it for everyday purchases.
+Wells Fargo Propel American Express,Wells Fargo Propel American Express,1/8/25 21:36,80,9243,Customer9243,5,4,"I used Wells Fargo Propel for a flight, and the travel rewards helped me save a lot."
+Chase Freedom Unlimited,Chase Freedom Unlimited,1/13/25 21:36,81,2456,Customer2456,5,5,"I use Chase Freedom Unlimited for balance transfers, and the 0% APR offer saved me a lot."
+Chase Freedom Unlimited,Chase Freedom Unlimited,12/11/24 21:36,82,1128,Customer1128,5,2,The bonus offer from Chase Freedom Unlimited was a great incentive to start using it.
+Chase Freedom Unlimited,Chase Freedom Unlimited,10/12/24 21:36,83,1918,Customer1918,5,2,Chase Freedom Unlimited has been great for earning rewards points for travel and cash back.
+Chase Freedom Unlimited,Chase Freedom Unlimited,9/20/24 21:36,84,9258,Customer9258,5,2,Chase Freedom Unlimited is my go-to card for grocery shopping. The rewards are fantastic.
+Chase Freedom Unlimited,Chase Freedom Unlimited,3/4/25 21:36,85,2957,Customer2957,5,3,I love using Chase Freedom Unlimited for the 0% APR offer on large purchases.
+Chase Freedom Unlimited,Chase Freedom Unlimited,4/30/25 21:36,86,8236,Customer8236,5,5,I love using Chase Freedom Unlimited for the 0% APR offer on large purchases.
+Chase Freedom Unlimited,Chase Freedom Unlimited,12/14/24 21:36,87,2323,Customer2323,5,3,I love using Chase Freedom Unlimited for the 0% APR offer on large purchases.
+Chase Freedom Unlimited,Chase Freedom Unlimited,2/16/25 21:36,88,8942,Customer8942,5,2,Chase Freedom Unlimited has been great for earning rewards points for travel and cash back.
+Chase Freedom Unlimited,Chase Freedom Unlimited,5/25/25 21:36,89,2183,Customer2183,5,3,"I use Chase Freedom Unlimited for balance transfers, and the 0% APR offer saved me a lot."
+Chase Freedom Unlimited,Chase Freedom Unlimited,10/25/24 21:36,90,7806,Customer7806,5,1,Chase Freedom Unlimited‚Äôs cash back program is great for everyday shopping.
+American Express Platinum,American Express Platinum,3/20/25 21:36,91,3793,Customer3793,5,3,No review available
+American Express Platinum,American Express Platinum,10/4/24 21:36,92,6395,Customer6395,5,2,No review available
+American Express Platinum,American Express Platinum,9/25/24 21:36,93,9893,Customer9893,5,5,No review available
+American Express Platinum,American Express Platinum,4/10/25 21:36,94,7089,Customer7089,5,4,No review available
+American Express Platinum,American Express Platinum,5/9/25 21:36,95,6653,Customer6653,5,2,No review available
+American Express Platinum,American Express Platinum,1/3/25 21:36,96,2340,Customer2340,5,5,No review available
+American Express Platinum,American Express Platinum,2/10/25 21:36,97,4566,Customer4566,5,1,No review available
+American Express Platinum,American Express Platinum,5/26/25 21:36,98,6774,Customer6774,5,5,No review available
+American Express Platinum,American Express Platinum,11/4/24 21:36,99,1831,Customer1831,5,2,No review available
+American Express Platinum,American Express Platinum,2/9/25 21:36,100,9268,Customer9268,5,2,No review available
+Apple Card,iOS,6/11/25 8:30,101,1001,John Doe,5,5,"I love getting 3% cashback on Apple purchases, it really adds up!"
+Chase Sapphire,Android,6/11/25 9:00,102,1002,Jane Smith,5,3,"The travel rewards on this card are unmatched, but the fees are too high."
+Amex BlueCash,Web,6/11/25 9:30,103,1003,David Lee,5,2,"The cashback program is amazing, but I hate the high APR when I'm late."
+Apple Card,iOS,6/11/25 10:00,104,1004,Emily White,5,3,"I redeemed my rewards points for a flight, but the process was a bit confusing."
+Chase Sapphire,Android,6/11/25 10:30,105,1005,Alex Green,5,4,"Airline rewards on this card are great, but the bonus offer was only decent."
+Apple Card,Web,6/11/25 11:00,106,1006,Nina Brown,5,2,"I'm disappointed with the travel rewards on Apple Card, they need improvement."
+Amex BlueCash,iOS,6/11/25 11:30,107,1007,Tom Harris,5,3,Cashback is nice but the 0% APR is too short. I expected a longer period.
+Chase Sapphire,Web,6/11/25 12:00,108,1008,Susan Black,5,4,"I love the 2x points for travel, but the customer service left me wanting more."
+Apple Card,Android,6/11/25 12:30,109,1009,Mark Wilson,5,4,"No complaints, but I wish Apple Card had more airline rewards options."
+Amex BlueCash,Web,6/11/25 13:00,110,1010,Lisa Carter,5,3,"Cashback is good, but I feel the rewards system is a bit complicated."
+Chase Sapphire,iOS,6/11/25 13:30,111,1011,James Clark,5,5,"I redeemed some travel rewards and had a seamless experience, great card!"
+Apple Card,Android,6/11/25 14:00,112,1012,Sophia Green,5,4,"The 0% APR for balance transfer is excellent, but I need better cashback on other purchases."
+Chase Sapphire,iOS,6/11/25 14:30,113,1013,Oliver Moore,5,3,"The travel insurance is a great perk, but the bonus offer was underwhelming."
+Amex BlueCash,Web,6/11/25 15:00,114,1014,Mia Harris,5,2,"I enjoy the cashback, but the APR can be a bit too high if you're not careful."
+Chase Sapphire,Android,6/11/25 15:30,115,1015,Nathan Lee,5,4,"The bonus points are a great incentive, but I wish the card had more travel benefits."
+Apple Card,iOS,6/11/25 16:00,116,1016,Hannah Kim,5,3,I use Apple Card for travel but wish there were more opportunities to earn points.
+Chase Sapphire,Web,6/11/25 16:30,117,1017,George Scott,5,4,"It's a solid card for travel rewards, but you need to stay on top of paying off the balance."
+Amex BlueCash,Android,6/11/25 17:00,118,1018,Samantha Thompson,5,3,I love the cashback on groceries but the 0% APR is too short. I expected more.
+Apple Card,Web,6/11/25 17:30,119,1019,Kevin Young,5,3,Cashback is solid but I need better airline rewards for my frequent flying.
+Chase Sapphire,iOS,6/11/25 18:00,120,1020,Charlotte Adams,5,3,Great travel perks but not enough cashback on daily purchases.
+Amex BlueCash,Web,6/11/25 18:30,121,1021,Joshua Martinez,5,2,Cashback is good but the interest rate is a bit much for my liking.
+Apple Card,iOS,6/11/25 19:00,122,1022,Olivia Moore,5,4,"Zero APR for 12 months is excellent, but rewards could be better."
+Chase Sapphire,Web,6/11/25 19:30,123,1023,Daniel Hall,5,3,"Rewards are great for travel, but I wish the bonus was higher."
+Apple Card,Android,6/11/25 20:00,124,1024,Liam Robinson,5,4,The cashback is good but the rewards for flights are limited.
+Amex BlueCash,iOS,6/11/25 20:30,125,1025,Chloe Lewis,5,3,"The cashback on groceries is awesome, but I don‚Äôt use the card for travel."
+Chase Sapphire,Web,6/11/25 21:00,126,1026,Matthew King,5,2,The travel insurance is fantastic but the APR is too high.
+Apple Card,Web,6/11/25 21:30,127,1027,Ava Martinez,5,3,"Great card for daily purchases, but airline miles are lacking."
+Chase Sapphire,Android,6/11/25 22:00,128,1028,Aiden Scott,5,4,The bonus points are excellent but customer support could be better.
+Apple Card,iOS,6/11/25 22:30,129,1029,Sophie Harris,5,3,I wish there were more travel rewards options but I do appreciate the cashback.
+Amex BlueCash,Web,6/11/25 23:00,130,1030,Henry White,5,3,"I appreciate the cashback, but it doesn't offer as much as I'd like for travel."
+Chase Sapphire,Web,6/11/25 23:30,131,1031,Emma Clark,5,4,"The card is great for travel, but the reward points could be higher."
+Apple Card,Android,6/12/25 0:00,132,1032,Jack Turner,5,4,"I love the 0% APR, but I need more airline miles and travel perks."
+Chase Sapphire,iOS,6/12/25 0:30,133,1033,Zoe Hall,5,3,"The travel rewards are decent, but the card fees are a bit much."
+Amex BlueCash,Android,6/12/25 1:00,134,1034,Leo Wilson,5,4,Great cashback but I wish there were better travel benefits.
+Apple Card,Web,6/12/25 1:30,135,1035,Mason Adams,5,3,"I love the cashback, but the travel rewards need to be improved."
+Chase Sapphire,Android,6/12/25 2:00,136,1036,Lily Wright,5,4,"The 0% APR is great, but I would prefer more cashback options."
+Apple Card,iOS,6/12/25 2:30,137,1037,James Martin,5,3,"Great card for shopping, but I need more travel perks for my frequent trips."
+Chase Sapphire,Web,6/12/25 3:00,138,1038,Megan Allen,5,3,Airline miles are great but not enough cashback.
+Amex BlueCash,Android,6/12/25 3:30,139,1039,David Lopez,5,4,"I like the cashback, but I want more rewards for dining and travel."
+Apple Card,Android,6/12/25 4:00,140,1040,Charlotte Lewis,5,3,The cashback is good but the rewards for flights are limited.

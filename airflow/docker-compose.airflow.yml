@@ -138,6 +138,8 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
       interval: 30s

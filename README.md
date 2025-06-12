@@ -32,11 +32,11 @@ The adminer service runs on `0.0.0.0:8086`.
 The username and password are present in the `profiles.yml` configuration file under `dbt_logic/`.
 
 ### Orchestration: Airflow
-Airflow services are configured together in a `docker-compose.airflow.yml` file under `airflow/` directory. This configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme).
+Airflow services are configured together in a `docker-compose.airflow.yml` file under `airflow/` directory. This configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme). 
 
 ![alt text](assets/airflow.png)
 
-The Airflow webserver runs on `0.0.0.0:8080`. The username and password are present in the `airflow/docker-compose.airflow.yml` file. 
+The Airflow webserver runs on `0.0.0.0:8080`. The username and password are present in the `airflow/docker-compose.airflow.yml` file. Once authenticated, filter by the `acura` tag to ignore Airflow example DAGs. 
 
 ### Data Transformations: dbt
 
@@ -62,7 +62,9 @@ A jupyterlab instance with fully a configured Spark environment is available on 
 
 ![alt text](assets/jupyter-pyspark.png)
 
-### Dashboarding: Tableau(??)
+### Visualization: Grafana
+The Grafana visualization service runs on `0.0.0.0:3080`. The default username and password are `admin` and `admin` respectively. 
+
 
 ## Containerization using Docker
 ### Network (`docker network ls`)
