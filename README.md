@@ -1,28 +1,24 @@
 # acura
-A containerized user review analytics platform that uses publicly available information about card products to guide feature roadmap planning and identify key areas of focus for business development. Use the environment setup command below to automatically configure and launch all the necessary services:
+A containerized user review analytics platform that uses publicly available information about card products to guide feature roadmap planning and identify key areas of focus for business development. 
 
-``docker-compose -f docker-compose.yml -f airflow/docker-compose.airflow.yml up -d``
+First, create a dotenv and store the following key in it:
+
+``AIRFLOW_PROJ_DIR=/path/to/this/folder``
+
+Use the environment setup command below in the project root directory (`acura`) to automatically configure and launch all the necessary services:
+
+``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml up -d``
+
+To shutdown all services, use:
+
+``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down --volumes --remove-orphans``
 
 ## Components
 
 ### Database: Postgres
 
 #### RDBMS service
-Configured in `docker-compose.yml` under the service name `postgres-datastore`. To reset the database to its initial (mock data) state, use:
-
-``docker exec -i postgres-datastore psql -U acura_user -d acura_db -f /docker-entrypoint-initdb.d/setup.sql``
-
-You should see output like:
-
-```
-    BEGIN
-    DROP TABLE
-    CREATE TABLE
-    COMMIT
-    BEGIN
-    COPY 6
-    COMMIT
-```
+Configured in `docker-compose.yml` under the service name `postgres-datastore`. To reset the database to its initial (mock data) state, trigger the `reset_data` DAG on the Airflow UI.
 
 #### Adminer GUI
 The adminer service runs on `0.0.0.0:8086`.
@@ -32,7 +28,7 @@ The adminer service runs on `0.0.0.0:8086`.
 The username and password are present in the `profiles.yml` configuration file under `dbt_logic/`.
 
 ### Orchestration: Airflow
-Airflow services are configured together in a `docker-compose.airflow.yml` file under `airflow/` directory. This configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme). 
+Airflow services are configured together in a `docker-compose.airflow.yml` file under `airflow/docker/` directory; there is also a custom `Dockerfile` that adds `docker compose` CLI utilties used to orchestrate the `dbt` container. The airflow compose configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme). 
 
 ![alt text](assets/airflow.png)
 
@@ -52,12 +48,13 @@ The dbt service is configured as a container bridged into the same network share
 
 Though the Source and Cloud layers are usually not part of Snwflake (and in this case, Postgres), this project assumes the containers are running as cloud services/microservices and so there is no additional ingress; source data in the `public` schema is referenced by dbt models starting from the `raw` layer.
 
-
 Please note that due to dbt naming conventions, the prefix `public_` will be attached to all dbt models, due to the configuration of only a development dbt profile. So, for example, the `raw` schema would appear as `public_raw`.
 
 ### Data Quality: deequ
-### Analytics: pySpark
-### Exploration: jupyter-pyspark
+
+### Analytics: Apache Spark
+
+#### EDA using `jupyter-pyspark`
 A jupyterlab instance with fully a configured Spark environment is available on a URL in the logs of the `jupyter-pyspark` container:
 
 ![alt text](assets/jupyter-pyspark.png)

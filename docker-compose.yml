@@ -41,7 +41,7 @@ services:
       - postgres-datastore
     networks:
       - backend
-    command: run --profiles-dir /usr/app/dbt/profiles --full-refresh
+    command: debug --profiles-dir /usr/app/dbt/profiles
   
   ## Analytics
   # Special thanks to karlchris/spark-docker.git
@@ -99,6 +99,17 @@ services:
       - ./grafana:/var/lib/grafana
     depends_on:
       - postgres-datastore
+    networks:
+      - backend
+  # Proxy for docker service - safely reuse host docker.sock
+  docker-proxy:
+    image: alpine/socat
+    container_name: docker-service-proxy
+    command: "TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock"
+    ports:
+      - "2376:2375"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - backend
 
