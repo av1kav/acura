@@ -1,10 +1,7 @@
 from airflow import DAG
-from airflow.operators.python import PythonOperator
-from airflow.operators.bash import BashOperator
-from airflow.operators.empty import EmptyOperator
-from airflow.providers.docker.operators.docker import DockerOperator
-from datetime import datetime, timedelta
-from docker.types import LogConfig
+from airflow.operators.bash import BashOperator # type: ignore
+from airflow.operators.empty import EmptyOperator # type: ignore
+from datetime import datetime
 
 POSTGRES_CONN_ID = 'postgres-datastore'
 SOURCE_DATABASE = 'public' # The equivalent of the source/cloud layer of the DCDF framework.

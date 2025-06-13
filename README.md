@@ -70,5 +70,13 @@ All container services are bound to the same network named `backend`, which reso
 - Airflow: workers, webserver, internal postgres db, internal redis db
 - dbt: all transformation operations on the Postgres db
 
+### Containerized task orchestration
+
+The `dbt` image present in the main `docker-compose.yml` is configured with a simple `debug` command. This is simply to show how the container service works, but as a standalone unit it simply accomplishes its command and stops:
+
+![alt text](docker_debug.png)
+
+This allows for containerized task orchestration - simply spawn a container for each task using the same dbt image, mounting any necessary volumes and adding any environment keys to the `airflow-common` configuration anchors. Airflow's BashOperators can be configured to use the host's Docker socket at `var/run/docker.sock`, which is mirrored and exposed as a service using TCP to ensure safety.
+
 ## Source Data
 Currently, only mock data is used to simulate real-world collected data.

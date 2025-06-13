@@ -1,7 +1,6 @@
-from airflow import DAG, macros
-from airflow.operators.bash import BashOperator
-from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
-from airflow.operators.empty import EmptyOperator
+from airflow import DAG
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator # type: ignore
+from airflow.operators.empty import EmptyOperator # type: ignore
 from datetime import datetime
 
 POSTGRES_CONN_ID = 'postgres-datastore'
