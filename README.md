@@ -1,4 +1,7 @@
 # acura
+
+![alt text](assets/acura_arch.png)
+
 A containerized user review analytics platform that uses publicly available information about card products to guide feature roadmap planning and identify key areas of focus for business development. 
 
 First, create a dotenv and store the following key in it:
@@ -28,7 +31,7 @@ The adminer service runs on [`0.0.0.0:8086`](http://0.0.0.0:8086).
 The username and password are present in the `profiles.yml` configuration file under `dbt_logic/`.
 
 ### Orchestration: Airflow
-Airflow services are configured together in a `docker-compose.airflow.yml` file under `airflow/docker/` directory; there is also a custom `Dockerfile` that adds `docker compose` CLI utilties used to orchestrate the `dbt` container. The airflow compose configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme). 
+Airflow services are configured together in a `docker-compose.airflow.yml` file under the `airflow/docker/` directory; there is also a custom `Dockerfile` that adds `docker compose` CLI utilties used to orchestrate `dbt` containers. The airflow compose configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme). 
 
 ![alt text](assets/airflow.png)
 
@@ -77,8 +80,10 @@ The `apache/airflow:3.0.2` image does not contain docker cli tools like `docker 
 ### Network (`docker network ls`)
 All container services are bound to the same network named `backend`, which resolves to `acura-backend` due to the project name. These services include:
 - Postgres: the main Postgres service, adminer
-- Airflow: workers, webserver, internal postgres db, internal redis db
+- Airflow: workers, webserver, internal postgres and redis databases
 - dbt: all transformation operations on the Postgres db
+- Spark: master, worker nodes, `jupyter-pyspark` service
+- Grafana: main Grafana service
 
 ### Containerized task orchestration
 

@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator # type: ignore
+from airflow.operators.bash import BashOperator # type: ignore
 from airflow.operators.empty import EmptyOperator # type: ignore
 from datetime import datetime
 
@@ -22,8 +23,7 @@ dag = DAG(
     tags=["acura","reset"]
 )
 
-# Credit Card comparison information source table
-
+# (MOCK) Credit Card comparison information source table
 drop_cc_comp_info_source_table = SQLExecuteQueryOperator(
     task_id='drop_cc_comp_info_source_table',
     sql= f"""DROP TABLE IF EXISTS {TARGET_DATABASE}.cc_comp_info CASCADE;""",
@@ -61,8 +61,7 @@ insert_data_cc_comp_info_source_table = SQLExecuteQueryOperator(
     dag=dag
 )
 
-# Credit Card user review information source table
-
+# (MOCK) Credit Card user review information source table
 drop_cc_review_events_source_table = SQLExecuteQueryOperator(
     task_id='drop_cc_review_events_source_table',
     sql= f"""DROP TABLE IF EXISTS {TARGET_DATABASE}.cc_review_events CASCADE;""",
@@ -101,6 +100,14 @@ insert_data_cc_review_events_source_table = SQLExecuteQueryOperator(
     dag=dag
 )
 
+# CSV Sources
+initialize_csv_sources = BashOperator(
+    task_id='initialize_csv_sources',
+    bash_command='python /opt/airflow/scripts/source/ingest_source_data.py /opt/airflow/scripts/source/sources.yml',
+    do_xcom_push=False,
+    dag=dag
+)
+
 start = EmptyOperator(
     task_id='start',
     dag=dag
@@ -111,16 +118,22 @@ end = EmptyOperator(
     dag=dag
 )
 
-drop_ok = EmptyOperator(
-    task_id='drop_ok',
+drop_mock_ok = EmptyOperator(
+    task_id='drop_mock_ok',
     dag=dag   
 )
 
-create_ok = EmptyOperator(
-    task_id='create_ok',
+create_mock_ok = EmptyOperator(
+    task_id='create_mock_ok',
     dag=dag   
 )
 
-start >> [drop_cc_comp_info_source_table, drop_cc_review_events_source_table] >> drop_ok \
-      >> [create_cc_comp_info_source_table, create_cc_review_events_source_table] >> create_ok \
-      >> [insert_data_cc_comp_info_source_table, insert_data_cc_review_events_source_table] >> end
+insert_mock_ok = EmptyOperator(
+    task_id='insert_mock_ok',
+    dag=dag   
+)
+
+start >> [drop_cc_comp_info_source_table, drop_cc_review_events_source_table] >> drop_mock_ok \
+      >> [create_cc_comp_info_source_table, create_cc_review_events_source_table] >> create_mock_ok \
+      >> [insert_data_cc_comp_info_source_table, insert_data_cc_review_events_source_table] >> insert_mock_ok \
+      >> initialize_csv_sources >> end

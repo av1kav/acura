@@ -1,0 +1,33 @@
+- desc: "Consumer Finance Protection Bureau (CFPB) Complaints: Apple Card"
+  source_type: "csv"
+  url: "https://www.consumerfinance.gov/data-research/consumer-complaints/search/api/v1/?search_term=apple%20card&field=all&size=100&sort=relevance_desc&no_aggs=false&no_highlight=true"
+  schema: "public"
+  table_name: "cfpb_complaints_apple_card"
+  table_drop_sql: "DROP TABLE IF EXISTS {schema}.{table_name}"
+  table_create_sql: |
+    CREATE TABLE {schema}.{table_name}(
+        _index TEXT,
+        _type TEXT,
+        _id TEXT,
+        _score NUMERIC,
+        sort TEXT, 
+        _source_product TEXT,
+        _source_complaint_what_happened	TEXT,
+        _source_date_sent_to_company TIMESTAMP,
+        _source_issue TEXT,
+        _source_sub_product TEXT,
+        _source_zip_code TEXT,
+        _source_tags TEXT,
+        _source_has_narrative TEXT,
+        _source_complaint_id TEXT,
+        _source_timely TEXT,
+        _source_consumer_consent_provided TEXT,
+        _source_company_response TEXT,
+        _source_submitted_via TEXT,
+        _source_company TEXT,
+        _source_date_received TIMESTAMP,
+        _source_state TEXT,
+        _source_consumer_disputed TEXT,
+        _source_company_public_response	TEXT,
+        _source_sub_issue TEXT
+    );

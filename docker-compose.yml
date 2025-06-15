@@ -77,7 +77,7 @@ services:
     image: jupyter/all-spark-notebook
     container_name: jupyter-pyspark
     volumes:
-      - ./pyspark/postgresql-42.7.5.jar:/opt/spark/jars/postgresql-42.7.5.jar
+      - ./pyspark/jars:/opt/spark/jars/
       - ./pyspark/notebooks:/home/jovyan/
     environment:
       SPARK_SUBMIT_ARGS: --jars /opt/spark/jars/postgresql-42.7.5.jar
