@@ -20,11 +20,11 @@ You can now browse the rest of this README and use the links provided below to e
 
 **To shutdown all services, use:**
 
-``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down``
+> ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down``
 
 **NOTE**: Its is also possible, but not recommended, to reset named storage volumes; containers that have been configured to use these named volumes rather than bind mounts will lose data. Airflow, for example, will lose its configured connection to the Postgres database - be sure to recreate the connection on the Airflow UI if using this reset option, or DAGs will fail.
 
-``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down --volumes --remove-orphans``
+> ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down --volumes --remove-orphans``
 
 
 ## Microservices
@@ -88,7 +88,7 @@ The two main dockerfiles used in this project are `docker-compose.yml` and `airf
 
 The `apache/airflow:3.0.2` image does not contain docker cli tools like `docker compose`, and so a custom `Dockerfile` is specified in the compose directives to install them. If you need to add/modify packages, be sure to rebuild the appropriate service images. For example, if rebuilding the Airflow worker:
 
-``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml build airflow-worker``
+> ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml build airflow-worker``
 
 ### Network (`docker network ls`)
 All container services are bound to the same network named `backend`, which resolves to `acura-backend` due to the project name. These services include:
