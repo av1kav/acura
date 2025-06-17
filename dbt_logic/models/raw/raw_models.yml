@@ -1,0 +1,34 @@
+version: 2
+models:
+  - name: dev_raw_dataeng_cfpb_complaints_apple_card
+    description: A table containing consumer complaints madeto the Consumer Financial Protection Bureau (CFPB) with the search term 'apple card'. One record per customer complaint ID.
+    columns:
+      - name: _index
+      - name: _type
+      - name: _id
+      - name: _score
+      - name: sort 
+      - name: _source_product
+      - name: _source_complaint_what_happened
+      - name: _source_date_sent_to_company
+      - name: _source_issue
+      - name: _source_sub_product
+      - name: _source_zip_code
+      - name: _source_tags
+      - name: _source_has_narrative
+      - name: _source_complaint_id
+        tests:
+          - unique
+          - not_null
+      - name: _source_timely
+      - name: _source_consumer_consent_provided
+      - name: _source_company_response
+      - name: _source_submitted_via
+      - name: _source_company
+        tests:
+          - not_null
+      - name: _source_date_received
+      - name: _source_state
+      - name: _source_consumer_disputed
+      - name: _source_company_public_response
+      - name: _source_sub_issue

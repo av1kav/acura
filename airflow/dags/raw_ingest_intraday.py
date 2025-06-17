@@ -7,6 +7,45 @@ POSTGRES_CONN_ID = 'postgres-datastore'
 SOURCE_DATABASE = 'public' # The equivalent of the source/cloud layer of the DCDF framework.
 TARGET_DATABASE = 'raw'
 DBT_CONTAINER_NAME = 'dbt'
+DBT_LOG_LEVEL = 'info'
+
+def create_dbt_exec_operator(task_id, dbt_command):
+    """
+    Return a BashOperator configured to run DBT transformations.
+    
+    Args:
+        task_id (str): The name of the task_id for this BashOperator
+        dbt_command (str): The command to run on the dbt container. This string must NOT
+            start with 'dbt'. So, to configure an operator to run `dbt run --full-refresh`,
+            simply provide `run --full-refresh`.
+    """
+    return BashOperator(
+        task_id=task_id,
+        bash_command=f"""
+            set -e
+            # Connect to virtual host machine unix sock
+            export DOCKER_HOST=tcp://docker-service-proxy:2375
+
+            # Stop and remove this containerized task in case it still exists
+            docker stop dbt && docker rm -f dockertask__dbt_run_raw_layer || true
+
+            # Run the dbt command in an ephemeral container
+            docker run --rm \
+                    -i \
+                    --name dockertask__{task_id} \
+                    -e PGPASSWORD=password \
+                    -e PGUSER=acura_user \
+                    -e PGHOST=postgres-datastore \
+                    -e PGPORT=5432 \
+                    -e PGDATABASE=acura_db \
+                    -v ${{AIRFLOW_PROJ_DIR}}/dbt_logic:/usr/app/dbt/ \
+                    --network acura_backend \
+                    --platform linux/amd64 \
+                    ghcr.io/dbt-labs/dbt-postgres:1.9.latest \
+                    {dbt_command} --log-level {DBT_LOG_LEVEL}""",
+        do_xcom_push=False,
+        dag=dag
+    )
 
 default_args = {
     'owner': 'airflow',
@@ -27,37 +66,14 @@ dag = DAG(
     tags=["acura","raw","ingest","intraday"]
 )
 
-source_layer_dq_check = EmptyOperator(
-    task_id='source_layer_dq_check',
-    dag=dag   
+dbt_run_raw_layer = create_dbt_exec_operator(
+    task_id='dbt_run_raw_layer',
+    dbt_command = 'run --profiles-dir /usr/app/dbt/profiles --select raw.*'
 )
 
-dbt_run_raw_layer = BashOperator(
-    task_id='dbt_run_raw_layer',
-    bash_command=f"""
-        set -e
-        # Connect to virtual host machine unix sock
-        export DOCKER_HOST=tcp://docker-service-proxy:2375
-
-        # Stop and remove this containerized task in case it still exists
-        docker stop dbt && docker rm -f dockertask__dbt_run_raw_layer || true
-
-        # Run the dbt command in an ephemeral container
-        docker run --rm \
-                -i \
-                --name dockertask__dbt_run_raw_layer \
-                -e PGPASSWORD=password \
-                -e PGUSER=acura_user \
-                -e PGHOST=postgres-datastore \
-                -e PGPORT=5432 \
-                -e PGDATABASE=acura_db \
-                -v ${{AIRFLOW_PROJ_DIR}}/dbt_logic:/usr/app/dbt/ \
-                --network acura_backend \
-                --platform linux/amd64 \
-                ghcr.io/dbt-labs/dbt-postgres:1.9.latest \
-                run --profiles-dir /usr/app/dbt/profiles --full-refresh --log-level info""",
-    do_xcom_push=False,
-    dag=dag
+dbt_test_raw_layer = create_dbt_exec_operator(
+    task_id='dbt_test_raw_layer',
+    dbt_command = 'test --profiles-dir /usr/app/dbt/profiles --select raw.*'
 )
 
 start = EmptyOperator(
@@ -70,4 +86,4 @@ end = EmptyOperator(
     dag=dag
 )
 
-start >> source_layer_dq_check >> dbt_run_raw_layer >> end
+start >> dbt_run_raw_layer >> dbt_test_raw_layer >> end

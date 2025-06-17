@@ -39,9 +39,11 @@ services:
       - ./dbt_logic:/usr/app/dbt/
     depends_on:
       - postgres-datastore
+    ports:
+      - 7070:8080
     networks:
       - backend
-    command: debug --profiles-dir /usr/app/dbt/profiles
+    command: docs generate --profiles-dir /usr/app/dbt/profiles
   
   ## Analytics
   # Special thanks to karlchris/spark-docker.git

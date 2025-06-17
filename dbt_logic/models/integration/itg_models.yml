@@ -1,0 +1,29 @@
+version: 2
+models:
+  - name: dev_itg_dataeng_cfpb_complaints_apple_card
+    description: Contains Apple Card CFPB consumer complaints one record per customer complaint ID, with some basic transformations
+    columns:
+      - name: complaint_id
+      - name: product
+      - name: sub_product
+      - name: issue
+      - name: sub_issue
+      - name:	complaint_raw_text
+      - name: complaint_tags
+      - name: has_narrative_flag
+        tests:
+          - accepted_values:
+              values: [0,1]
+      - name: _source_timely_flag
+        tests:
+          - accepted_values:
+              values: [0,1]
+      - name: submitted_via
+      - name: company
+      - name: date_sent_to_company
+      - name: date_received_at_company
+      - name: company_response
+      - name: consumer_disputed
+      - name: company_public_response_to_complaint
+      - name: customer_state
+      - name: zip_code

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: cfpb_source_data_apple_card
+    database: acura_db
+    schema: public
+    tables:
+      - name: cfpb_complaints_apple_card
