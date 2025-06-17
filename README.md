@@ -4,25 +4,30 @@
 
 A containerized user review analytics platform that uses publicly available information about card products to guide feature roadmap planning and identify key areas of focus for business development. 
 
-First, create a dotenv and store the following key in it:
+## Quickstart
 
-``AIRFLOW_PROJ_DIR=/path/to/this/folder``
+**Create a dotenv and store the following key in it, replacing the placeholder string with the absolute path to this project's root directory (`acura`):**
 
-Use the environment setup command below in the project root directory (`acura`) to automatically configure and launch all the necessary services:
+> ``AIRFLOW_PROJ_DIR=/path/to/this/folder``
 
-``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml up -d``
+**Use the environment setup command below in the same root directory to automatically configure and launch all necessary services:**
 
-To shutdown all services, use:
+> ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml up -d``
+
+You can now browse the rest of this README and use the links provided below to explore the various Acura microservices!
+
+<br />
+
+**To shutdown all services, use:**
 
 ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down``
 
-To 'reset' the containers that have named volume storage (e.g Airflow), use:
+**NOTE**: Its is also possible, but not recommended, to reset named storage volumes; containers that have been configured to use these named volumes rather than bind mounts will lose data. Airflow, for example, will lose its configured connection to the Postgres database - be sure to recreate the connection on the Airflow UI if using this reset option, or DAGs will fail.
 
 ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down --volumes --remove-orphans``
 
-**NOTE**: Any containers that depend on named volume storage rather than bind mountsd will lose data. Airflow, for example, will lose its configured connection to the Postgres database. Be sure to recreate the connection on the Airflow UI if using this reset option.
 
-## Components
+## Microservices
 
 ### Database: Postgres
 
