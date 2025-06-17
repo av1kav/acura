@@ -1,7 +1,7 @@
 version: 2
 models:
   - name: dev_raw_dataeng_cfpb_complaints_apple_card
-    description: A table containing consumer complaints madeto the Consumer Financial Protection Bureau (CFPB) with the search term 'apple card'. One record per customer complaint ID.
+    description: "{{ doc('cfpb_complaints_apple_card_docs') }}"
     columns:
       - name: _index
       - name: _type

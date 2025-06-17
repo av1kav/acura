@@ -43,7 +43,7 @@ services:
       - 7070:8080
     networks:
       - backend
-    command: docs generate --profiles-dir /usr/app/dbt/profiles
+    command: docs serve --profiles-dir /usr/app/dbt/profiles --host 0.0.0.0 --port 8080
   
   ## Analytics
   # Special thanks to karlchris/spark-docker.git

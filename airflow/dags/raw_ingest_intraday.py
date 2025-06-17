@@ -4,8 +4,6 @@ from airflow.operators.empty import EmptyOperator # type: ignore
 from datetime import datetime
 
 POSTGRES_CONN_ID = 'postgres-datastore'
-SOURCE_DATABASE = 'public' # The equivalent of the source/cloud layer of the DCDF framework.
-TARGET_DATABASE = 'raw'
 DBT_CONTAINER_NAME = 'dbt'
 DBT_LOG_LEVEL = 'info'
 
@@ -59,7 +57,7 @@ default_args = {
 dag = DAG(
     'raw_ingest_intraday',
     default_args=default_args,
-    description='Run the first layer of dbt data models',
+    description='Run the raw layer of Acura dbt data models',
     schedule='0 0 * * *',
     start_date=datetime(2025, 6, 12),
     catchup=False,

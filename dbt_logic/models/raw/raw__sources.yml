@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: cfpb_source_data_apple_card
+  - name: cfpb_data
     database: acura_db
     schema: public
     tables:

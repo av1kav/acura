@@ -57,19 +57,21 @@ The dbt service is configured as a container bridged into the same network share
 
 The Source and Cloud layers are usually not part of Snwflake (and in this case, Postgres); this project assumes this portion is already set up under the `public` schema and referenced by dbt models starting from the `raw` layer.
 
-Please note that due to dbt naming conventions, the prefix `public_` will be attached to all dbt models, due to the configuration of only a development dbt profile. So, for example, the `raw` schema would appear as `public_raw`.
+Please note that due to dbt naming conventions, the prefix `public_` will be attached to all dbt models, due to the configuration of only a development dbt profile. So, for example, the `raw` schema would appear as `public_raw`. The dbt core UI, complete with lineage graphs, is available at [`0.0.0.0:7070`](http://0.0.0.0:7070):
+
+![alt text](assets/dbt_ui.png)
 
 ### Data Quality: deequ
 
 ### Data Analytics: Apache Spark
 
 #### EDA using `jupyter-pyspark`
-A jupyterlab instance with fully a configured Spark environment is available on a URL in the logs of the `jupyter-pyspark` container:
+A jupyterlab instance with fully a configured Spark environment is available on a URL generated in the logs of the `jupyter-pyspark` container:
 
 ![alt text](assets/jupyter-pyspark.png)
 
 ## Visualization: Grafana
-The Grafana visualization service runs on [`0.0.0.0:3080`](http://0.0.0.0:3080). The default username and password are `admin` and `admin` respectively. 
+The Grafana visualization service runs on [`0.0.0.0:3000`](http://0.0.0.0:3000). The default username and password are `admin` and `admin` respectively. 
 
 ![alt text](assets/grafana.png)
 
@@ -98,6 +100,6 @@ The `dbt` image present in the main `docker-compose.yml` is configured with a `d
 
 DBT can be similarly configured to run containerized task orchestration - simply spawn a container for each task using the dbt image, mounting any necessary volumes and adding any environment keys to the `airflow-common` configuration anchors. Airflow's BashOperators can be configured to use the host's Docker socket at `var/run/docker.sock`, which is mirrored and exposed as a service using TCP to ensure safety.
 
-This is simply to show how the container service works, but as a standalone unit it simply accomplishes its command and stops:
+For example, a container can be configured with a dbt image and the `debug` command; when launched, it simply accomplishes its command and stops:
 
 ![alt text](assets/docker_debug.png)
