@@ -6,19 +6,21 @@ A containerized user review analytics platform that uses publicly available info
 
 ## Quickstart
 
-**Create a dotenv and store the following key in it, replacing the placeholder string with the absolute path to this project's root directory (`acura`):**
+Create a dotenv and store the following key in it, replacing the placeholder string with the absolute path to this project's root directory (`acura`):
 
 > ``AIRFLOW_PROJ_DIR=/path/to/this/folder``
 
-**Use the environment setup command below in the same root directory to automatically configure and launch all necessary services:**
+Use the environment setup command below in the same root directory to automatically configure and launch all necessary services:
 
 > ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml up -d``
 
-You can now browse the rest of this README and use the links provided below to explore the various Acura microservices!
+<br>
+
+You can now browse the rest of this README and use the links provided to explore the various Acura microservices!
 
 <br />
 
-**To shutdown all services, use:**
+To shutdown all services, use:
 
 > ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml down``
 
@@ -54,9 +56,9 @@ The dbt service is configured as a container bridged into the same network share
 
 1. Source/Cloud: `public` schema. The unaltered, raw data from various EL sources.
 2. Raw layer: `raw` schema. A 1:1 replication of the source data with extra control columns eg. `ingest_timestamp`
-3. Integration layer: `integration` schema. All "business transformations" and feature engineering
-4. Presentation layer: `presentation` schema
-5. Share layer: `share` schema
+3. Integration layer: `integration` schema. All "business transformations" and feature engineering happen here.
+4. Presentation layer: `presentation` schema. Contains purpose-built tables for reporting, analytics and data science. 
+5. Share layer: `share` schema. Designed for enterprise data sharing & parternships; this layer is beyond the scope of this project at the moment.
 
 ![alt text](assets/dcdf.png)
 
