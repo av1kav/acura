@@ -29,7 +29,7 @@ services:
   ## Orchestration
   #   Airflow; merge airflow/docker-compose.airflow.yml with docker-compose.yml at runtime; see README for setup script
   
-  ## Data Transformation
+  # Data Transformation
   # dbt
   dbt:
     container_name: dbt
@@ -46,14 +46,13 @@ services:
     command: docs serve --profiles-dir /usr/app/dbt/profiles --host 0.0.0.0 --port 8080
   
   ## Analytics
-  # Special thanks to karlchris/spark-docker.git
-  # Master service
+  # Spark Master service
   spark-master:
-    image: apache/spark-py:v3.4.0
+    image: bitnami/spark:3.4
+    platform: linux/arm64
     container_name: spark-master
     environment:
       - SPARK_MODE=master
-      - SPARK_HOME=/opt/spark
     ports:
       - "8090:8080"  # Spark UI
       - "7077:7077"  # Spark master port
@@ -61,15 +60,15 @@ services:
       - ./pyspark/spark-logs:/opt/spark/logs
     networks:
       - backend
-    command: ["/opt/spark/sbin/start-master.sh"]
-  # Workers
+  # Spark Workers
   spark-worker:
-    image: apache/spark-py:v3.4.0
+    image: bitnami/spark:3.4
+    platform: linux/arm64
     container_name: spark-worker
+    user: root
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER=spark://spark-master:7077
-      - SPARK_HOME=/opt/spark
+      - SPARK_MASTER_URL=spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
@@ -89,6 +88,7 @@ services:
       - spark-master
     networks:
       - backend
+
   ## Data Visualization
   # Grafana
   grafana:
@@ -103,7 +103,8 @@ services:
       - postgres-datastore
     networks:
       - backend
-  # Proxy for docker service - safely reuse host docker.sock
+
+  ## Proxy for docker service - safely reuse host docker.sock
   docker-proxy:
     image: alpine/socat
     container_name: docker-service-proxy

@@ -23,4 +23,4 @@ _source_state,
 _source_consumer_disputed,
 _source_company_public_response,
 _source_sub_issue
-from {{ source('cfpb_source_data_apple_card','cfpb_complaints_apple_card') }}
+from {{ source('cfpb_data','cfpb_complaints_apple_card') }}

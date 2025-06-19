@@ -1,7 +1,7 @@
 version: 2
 models:
   - name: dev_raw_dataeng_cfpb_complaints_apple_card
-    description: "{{ doc('cfpb_complaints_apple_card_docs') }}"
+    description: A 1:1 copy of the source data in the `raw` schema.
     columns:
       - name: _index
       - name: _type

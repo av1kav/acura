@@ -72,10 +72,18 @@ Please note that due to dbt naming conventions, the prefix `public_` will be att
 
 ### Data Analytics: Apache Spark
 
+The Spark image used in this project is provided by [`bitnami`](https://hub.docker.com/r/bitnami/spark), since the [`apache/spark-py`](https://hub.docker.com/r/apache/spark-py) images seemed to have a dependency issue with `rsync`; this also keeps the number of custom `Dockerfiles` to a minimum to reduce the chance of build errors in the future due to package dependencies etc.
+
+The `spark-master` service runs on [`0.0.0.0:8090`](http://0.0.0.0:8090), with workers connecting to the `spark://spark-master:7077` Spark host:
+
+![alt text](assets/spark-masterui.png)
+
 #### EDA using `jupyter-pyspark`
 A jupyterlab instance with fully a configured Spark environment is available on a URL generated in the logs of the `jupyter-pyspark` container:
 
 ![alt text](assets/jupyter-pyspark.png)
+
+You will need to use the Docker UI or `docker logs jupyter-pyspark` to see these logs and the generated URL.
 
 ## Visualization: Grafana
 The Grafana visualization service runs on [`0.0.0.0:3000`](http://0.0.0.0:3000). The default username and password are `admin` and `admin` respectively. 
@@ -110,3 +118,9 @@ DBT can be similarly configured to run containerized task orchestration - simply
 For example, a container can be configured with a dbt image and the `debug` command; when launched, it simply accomplishes its command and stops:
 
 ![alt text](assets/docker_debug.png)
+
+## FAQs
+
+- **Does this project use real data?**
+
+    Yes - all visualizations are based on real-world data; these are configured in `scripts/source/sources.yml`.
