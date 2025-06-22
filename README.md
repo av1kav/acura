@@ -6,17 +6,19 @@ A containerized user review analytics platform that uses publicly available info
 
 ## Quickstart
 
-Create a dotenv and store the following key in it, replacing the placeholder string with the absolute path to this project's root directory (`acura`):
+You will need an internet connection and Docker (Desktop recommended since you get a GUI in addition to the CLI tools).
 
-> ``AIRFLOW_PROJ_DIR=/path/to/this/folder``
+1. Create a dotenv and store the following key in it, replacing the placeholder string with the absolute path to this project's root directory (`acura`):
 
-Use the environment setup command below in the same root directory to automatically configure and launch all necessary services:
+    > ``AIRFLOW_PROJ_DIR=/path/to/this/folder``
 
-> ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml up -d``
+2. Use the environment setup command below in the same root directory to automatically configure and launch all necessary services:
 
-<br>
+    > ``docker-compose -f docker-compose.yml -f airflow/docker/docker-compose.airflow.yml up -d``
 
-You can now browse the rest of this README and use the links provided to explore the various Acura microservices!
+    <br>
+
+    That's it! You can now browse the rest of this README and use the links provided to explore various Acura microservices.
 
 <br />
 
@@ -34,21 +36,19 @@ To shutdown all services, use:
 ### Database: Postgres
 
 #### RDBMS service
-Configured in `docker-compose.yml` under the service name `postgres-datastore`. To reset the database to its initial (mock data) state, trigger the `reset_data` DAG on the Airflow UI.
+Configured in `docker-compose.yml` under the service name `postgres-datastore`. Since Acura is entirely containerized, the database is empty by default and data from remote sources must first be ingested. To do this, simply trigger the `reset_data` DAG on the Airflow UI (see section on `Orchestration` below) - any ingested data will, from then on, reside on your machine and persist between restarts in the Postgres database. 
 
 #### Adminer GUI
-The adminer service runs on [`0.0.0.0:8086`](http://0.0.0.0:8086).
+The adminer service runs on [`0.0.0.0:8086`](http://0.0.0.0:8086), and is configured in `docker-compose.yml` under the service name `adminer`. Login credentials are present in the `profiles.yml` configuration file under `dbt_logic/profiles`.
 
 ![alt text](assets/adminer.png)
 
-The username and password are present in the `profiles.yml` configuration file under `dbt_logic/`.
-
 ### Orchestration: Airflow
-Airflow services are configured together in a `docker-compose.airflow.yml` file under the `airflow/docker/` directory; there is also a custom `Dockerfile` that adds `docker compose` CLI utilties used to orchestrate `dbt` containers. The airflow compose configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see top section of this readme). 
+Airflow services are configured together in a `docker-compose.airflow.yml` file under the `airflow/docker/` directory; there is also a custom `Dockerfile` that adds `docker compose` CLI utilties used to orchestrate `dbt` containers. The airflow compose configuration is then merged with the main `docker-compose.yml` at execution time of the `docker-compose up` command (see step 2 in the Quickstart). 
 
 ![alt text](assets/airflow.png)
 
-The Airflow webserver runs on [`0.0.0.0:8080`](http://0.0.0.0:8080). The default username and password are `airflow` and `airflow` respectively. Once authenticated, filter by the `acura` tag to ignore Airflow example DAGs. 
+The Airflow webserver runs on [`0.0.0.0:8080`](http://0.0.0.0:8080). The default username and password are `airflow` and `airflow` respectively. Once authenticated, filter by the `acura` tag using the dropdown to ignore Airflow example DAGs. 
 
 ### Data Transformations: dbt
 
@@ -74,7 +74,7 @@ Please note that due to dbt naming conventions, the prefix `public_` will be att
 
 The Spark image used in this project is provided by [`bitnami`](https://hub.docker.com/r/bitnami/spark), since the [`apache/spark-py`](https://hub.docker.com/r/apache/spark-py) images seemed to have a dependency issue with `rsync`; this also keeps the number of custom `Dockerfiles` to a minimum to reduce the chance of build errors in the future due to package dependencies etc.
 
-The `spark-master` service runs on [`0.0.0.0:8090`](http://0.0.0.0:8090), with workers connecting to the `spark://spark-master:7077` Spark host:
+The `spark-master` service runs a GUI at [`0.0.0.0:8090`](http://0.0.0.0:8090), with workers connecting to the `spark://spark-master:7077` Spark host:
 
 ![alt text](assets/spark-masterui.png)
 
@@ -83,7 +83,7 @@ A jupyterlab instance with fully a configured Spark environment is available on 
 
 ![alt text](assets/jupyter-pyspark.png)
 
-You will need to use the Docker UI or `docker logs jupyter-pyspark` to see these logs and the generated URL.
+You will need to use the Docker Desktop UI (recommended) or `docker logs jupyter-pyspark` to see these logs and the generated URL.
 
 ## Visualization: Grafana
 The Grafana visualization service runs on [`0.0.0.0:3000`](http://0.0.0.0:3000). The default username and password are `admin` and `admin` respectively. 
@@ -111,9 +111,9 @@ All container services are bound to the same network named `backend`, which reso
 
 ### Containerized task orchestration
 
-The `dbt` image present in the main `docker-compose.yml` is configured with a `docs generate` command, that runs a documentation site at [`0.0.0.0:707`](http://0.0.0.0:7070)
+The `dbt` image present in the main `docker-compose.yml` is configured to be used in a container with a `docs generate` command that runs a documentation site at [`0.0.0.0:7070`](http://0.0.0.0:7070)
 
-DBT can be similarly configured to run containerized task orchestration - simply spawn a container for each task using the dbt image, mounting any necessary volumes and adding any environment keys to the `airflow-common` configuration anchors. Airflow's BashOperators can be configured to use the host's Docker socket at `var/run/docker.sock`, which is mirrored and exposed as a service using TCP to ensure safety.
+DBT can be similarly configured to run containerized task orchestration - simply spawn a container for each task using the dbt image, mounting any necessary volumes and adding any environment keys to the `airflow-common` configuration anchors in the `airflow/docker/docker-compose.yml`. Airflow's BashOperators can be configured to use the host's Docker socket at `var/run/docker.sock`, which is mirrored and exposed as a service using TCP to ensure safety.
 
 For example, a container can be configured with a dbt image and the `debug` command; when launched, it simply accomplishes its command and stops:
 

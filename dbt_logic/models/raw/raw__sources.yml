@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: cfpb_data
-    description: {{ doc('cfpb_complaints_apple_card_source_docs') }}
+    description: "{{ doc('cfpb_complaints_apple_card_source_docs') }}"
     database: acura_db
     schema: public
     tables:

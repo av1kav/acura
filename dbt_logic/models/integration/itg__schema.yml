@@ -14,7 +14,7 @@ models:
         tests:
           - accepted_values:
               values: [0,1]
-      - name: _source_timely_flag
+      - name: source_timely_flag
         tests:
           - accepted_values:
               values: [0,1]
